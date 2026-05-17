@@ -1,0 +1,171 @@
+---
+interface Props {
+  title?:       string;
+  description?: string;
+  ogImage?:     string;
+  canonical?:   string;
+}
+
+const {
+  title       = "Jeevora Private Limited — Growing People, Creating Impact",
+  description = "Jeevora is a growth-focused company built on human connection, scalable customer acquisition, performance marketing, and business expansion.",
+  ogImage     = "/logo.jpg",
+  canonical,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Primary meta -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {canonical && <link rel="canonical" href={canonical} />}
+
+    <!-- Favicons — using Jeevora logo -->
+    <link rel="icon"             type="image/jpeg"    href="/logo.jpg" />
+    <link rel="icon"             type="image/x-icon"  href="/favicon.ico" />
+    <link rel="apple-touch-icon"                      href="/logo.jpg" />
+    <meta name="theme-color"    content="#1b3575" />
+
+    <!-- Open Graph -->
+    <meta property="og:type"        content="website" />
+    <meta property="og:title"       content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image"       content={ogImage} />
+    <meta property="og:site_name"   content="Jeevora Private Limited" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card"        content="summary_large_image" />
+    <meta name="twitter:title"       content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image"       content={ogImage} />
+
+    <!-- Fonts: preconnect for performance, then the actual sheet -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Global styles (Tailwind v4) -->
+    <link rel="stylesheet" href="/src/styles/global.css" />
+  </head>
+
+  <body class="bg-white text-warm-900 overflow-x-hidden">
+    <slot />
+
+    <!-- ══════════════════════════════════════════
+         GLOBAL SCRIPTS  (vanilla — no framework)
+         ══════════════════════════════════════════ -->
+    <script>
+      /* ── 1. Scroll-reveal via IntersectionObserver ── */
+      (() => {
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) {
+                e.target.classList.add("visible");
+                io.unobserve(e.target); // fire once, then release
+              }
+            });
+          },
+          { threshold: 0.08, rootMargin: "0px 0px -48px 0px" }
+        );
+
+        document
+          .querySelectorAll(".reveal, .reveal-left, .reveal-right, .reveal-fade")
+          .forEach((el) => io.observe(el));
+      })();
+
+      /* ── 2. Navbar: transparent → frosted glass on scroll ── */
+      (() => {
+        const nav = document.getElementById("navbar");
+        if (!nav) return;
+
+        const THRESHOLD = 48;
+        const onScroll = () => {
+          if (window.scrollY > THRESHOLD) {
+            nav.classList.add("nav-scrolled");
+          } else {
+            nav.classList.remove("nav-scrolled");
+          }
+        };
+
+        window.addEventListener("scroll", onScroll, { passive: true });
+        onScroll(); // run once on init
+      })();
+
+      /* ── 3. Mobile hamburger menu ── */
+      (() => {
+        const btn       = document.getElementById("menu-btn");
+        const menu      = document.getElementById("mobile-menu");
+        const iconOpen  = document.getElementById("icon-open");
+        const iconClose = document.getElementById("icon-close");
+        if (!btn || !menu) return;
+
+        const toggle = (force?: boolean) => {
+          const isOpen = typeof force === "boolean"
+            ? force
+            : !menu.classList.contains("is-open");
+
+          menu.classList.toggle("is-open", isOpen);
+          btn.setAttribute("aria-expanded", String(isOpen));
+          iconOpen?.classList.toggle("hidden", isOpen);
+          iconClose?.classList.toggle("hidden", !isOpen);
+        };
+
+        btn.addEventListener("click", () => toggle());
+
+        // Close when any nav link is clicked
+        menu.querySelectorAll("a").forEach((a) => {
+          a.addEventListener("click", () => toggle(false));
+        });
+
+        // Close on outside click
+        document.addEventListener("click", (e) => {
+          if (!nav?.contains(e.target as Node)) toggle(false);
+        });
+      })();
+
+      /* ── 4. Animated counters ── */
+      (() => {
+        const easeOut = (t: number) => 1 - Math.pow(1 - t, 3);
+
+        const run = (el: HTMLElement) => {
+          const target   = parseFloat(el.dataset.target ?? "0");
+          const prefix   = el.dataset.prefix  ?? "";
+          const suffix   = el.dataset.suffix  ?? "";
+          const decimals = parseInt(el.dataset.decimals ?? "0");
+          const duration = 2000;
+          let   start: number | null = null;
+
+          const tick = (ts: number) => {
+            if (!start) start = ts;
+            const p = Math.min((ts - start) / duration, 1);
+            el.textContent = prefix + (easeOut(p) * target).toFixed(decimals) + suffix;
+            if (p < 1) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+        };
+
+        const io = new IntersectionObserver(
+          (entries) => entries.forEach((e) => {
+            if (e.isIntersecting) {
+              run(e.target as HTMLElement);
+              io.unobserve(e.target);
+            }
+          }),
+          { threshold: 0.5 }
+        );
+
+        document.querySelectorAll<HTMLElement>("[data-target]").forEach((el) => io.observe(el));
+      })();
+    </script>
+  </body>
+</html>

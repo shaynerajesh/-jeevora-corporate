@@ -1,0 +1,238 @@
+---
+const CONTACT_DETAILS = [
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/>`,
+    label: "Email",
+    value: "hello@jeevora.com",
+    link:  "mailto:hello@jeevora.com",
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>`,
+    label: "Phone",
+    value: "+91 98765 43210",
+    link:  "tel:+919876543210",
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>`,
+    label: "Location",
+    value: "Mumbai, Maharashtra, India",
+    link:  "#",
+  },
+] as const;
+
+const INQUIRY_TYPES = [
+  "Field Marketing & Direct Sales",
+  "Retail Activation",
+  "Experiential Campaigns",
+  "Contact Centre Solutions",
+  "Business Partnership",
+  "Career Enquiry",
+  "Other",
+] as const;
+---
+
+<section id="contact" aria-labelledby="contact-heading" class="section-pad bg-warm-50 relative overflow-hidden">
+
+  <div
+    class="absolute top-0 right-0 size-96 bg-navy-50 rounded-full blur-3xl opacity-50 translate-x-1/3 -translate-y-1/3 pointer-events-none"
+    aria-hidden="true"
+  ></div>
+
+  <div class="wrap relative z-10">
+
+    <!-- Header -->
+    <div class="text-center max-w-2xl mx-auto mb-12 lg:mb-14">
+      <p class="label-eyebrow reveal mb-4">Get In Touch</p>
+      <div class="section-divider reveal delay-100 mx-auto mb-6"></div>
+      <h2
+        id="contact-heading"
+        class="reveal delay-100 font-display font-extrabold text-navy-900 text-4xl lg:text-5xl tracking-tighter leading-[1.06] mb-4"
+      >
+        Let's Build Exceptional<br />Growth Together
+      </h2>
+      <p class="reveal delay-200 text-base text-warm-500 leading-relaxed">
+        Reach out to explore how we can deliver measurable, impactful growth for your business. Every enquiry is reviewed by a senior team member.
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-5 gap-8 lg:gap-12">
+
+      <!-- Left: Contact details -->
+      <div class="lg:col-span-2 space-y-4">
+        {CONTACT_DETAILS.map(({ icon, label, value, link }, i) => (
+          <div class={`reveal delay-${i * 100 + 100} flex gap-4 bg-white rounded-2xl border border-warm-200 p-5 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200`}>
+            <div class="size-10 bg-navy-50 rounded-xl flex items-center justify-center flex-shrink-0">
+              <svg class="size-5 text-navy-700" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24" aria-hidden="true">
+                <Fragment set:html={icon} />
+              </svg>
+            </div>
+            <div>
+              <p class="text-[0.65rem] font-bold uppercase tracking-widest text-warm-400 mb-1">{label}</p>
+              <a href={link} class="text-sm font-semibold text-navy-900 hover:text-grove-700 transition-colors">
+                {value}
+              </a>
+            </div>
+          </div>
+        ))}
+
+        <!-- Response promise -->
+        <div class="reveal delay-400 rounded-2xl p-6 text-white" style="background:linear-gradient(135deg,#0d6c4a 0%,#0a5038 100%);">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="size-8 bg-white/15 rounded-lg flex items-center justify-center flex-shrink-0">
+              <svg class="size-4 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            <span class="text-sm font-bold">Our Response Commitment</span>
+          </div>
+          <p class="text-grove-100 text-sm leading-relaxed">
+            Every enquiry is reviewed personally. We respond to all messages within <strong class="text-white">24 hours</strong>, Monday to Saturday.
+          </p>
+        </div>
+
+        <!-- Jeevora logo in contact sidebar -->
+        <div class="reveal delay-500 bg-white rounded-2xl border border-warm-200 p-5 flex items-center gap-4">
+          <div
+            class="relative overflow-hidden rounded-xl flex-shrink-0 border border-warm-100"
+            style="width:3rem;height:3rem;"
+          >
+            <img
+              src="/logo.jpg"
+              alt="Jeevora Private Limited"
+              width="1254" height="1254"
+              class="absolute inset-0 w-full"
+              style="height:140%;object-fit:cover;object-position:top center;"
+              decoding="async"
+            />
+          </div>
+          <div>
+            <p class="text-sm font-extrabold text-navy-900 leading-tight">Jeevora Private Limited</p>
+            <p class="text-xs text-grove-700 font-semibold mt-0.5">Growing people, creating impact</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="lg:col-span-3 reveal reveal-right delay-200">
+        <form
+          id="contact-form"
+          class="bg-white rounded-3xl border border-warm-200 p-7 lg:p-9 shadow-sm"
+          novalidate
+        >
+          <div class="grid sm:grid-cols-2 gap-4 mb-4">
+            <div>
+              <label for="first-name" class="block text-xs font-semibold text-warm-700 mb-1.5">
+                First Name <span class="text-grove-600" aria-hidden="true">*</span>
+              </label>
+              <input
+                type="text" id="first-name" name="first-name" required
+                placeholder="Arjun"
+                class="w-full px-4 py-3.5 rounded-xl border border-warm-200 bg-warm-50 text-warm-900 text-sm font-medium placeholder:text-warm-300 focus:outline-none focus:ring-2 focus:ring-navy-300 focus:border-navy-400 transition-all duration-200"
+              />
+            </div>
+            <div>
+              <label for="last-name" class="block text-xs font-semibold text-warm-700 mb-1.5">
+                Last Name <span class="text-grove-600" aria-hidden="true">*</span>
+              </label>
+              <input
+                type="text" id="last-name" name="last-name" required
+                placeholder="Sharma"
+                class="w-full px-4 py-3.5 rounded-xl border border-warm-200 bg-warm-50 text-warm-900 text-sm font-medium placeholder:text-warm-300 focus:outline-none focus:ring-2 focus:ring-navy-300 focus:border-navy-400 transition-all duration-200"
+              />
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-4 mb-4">
+            <div>
+              <label for="email" class="block text-xs font-semibold text-warm-700 mb-1.5">
+                Work Email <span class="text-grove-600" aria-hidden="true">*</span>
+              </label>
+              <input
+                type="email" id="email" name="email" required
+                placeholder="arjun@company.com"
+                class="w-full px-4 py-3.5 rounded-xl border border-warm-200 bg-warm-50 text-warm-900 text-sm font-medium placeholder:text-warm-300 focus:outline-none focus:ring-2 focus:ring-navy-300 focus:border-navy-400 transition-all duration-200"
+              />
+            </div>
+            <div>
+              <label for="phone" class="block text-xs font-semibold text-warm-700 mb-1.5">Phone Number</label>
+              <input
+                type="tel" id="phone" name="phone"
+                placeholder="+91 98765 43210"
+                class="w-full px-4 py-3.5 rounded-xl border border-warm-200 bg-warm-50 text-warm-900 text-sm font-medium placeholder:text-warm-300 focus:outline-none focus:ring-2 focus:ring-navy-300 focus:border-navy-400 transition-all duration-200"
+              />
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <label for="company" class="block text-xs font-semibold text-warm-700 mb-1.5">Company / Organisation</label>
+            <input
+              type="text" id="company" name="company"
+              placeholder="Acme Private Limited"
+              class="w-full px-4 py-3.5 rounded-xl border border-warm-200 bg-warm-50 text-warm-900 text-sm font-medium placeholder:text-warm-300 focus:outline-none focus:ring-2 focus:ring-navy-300 focus:border-navy-400 transition-all duration-200"
+            />
+          </div>
+
+          <div class="mb-4">
+            <label for="inquiry" class="block text-xs font-semibold text-warm-700 mb-1.5">
+              Nature of Enquiry <span class="text-grove-600" aria-hidden="true">*</span>
+            </label>
+            <select
+              id="inquiry" name="inquiry" required
+              class="w-full px-4 py-3.5 rounded-xl border border-warm-200 bg-warm-50 text-warm-900 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-navy-300 focus:border-navy-400 transition-all duration-200 appearance-none cursor-pointer"
+            >
+              <option value="" disabled selected>Select enquiry type</option>
+              {INQUIRY_TYPES.map((t) => (
+                <option value={t}>{t}</option>
+              ))}
+            </select>
+          </div>
+
+          <div class="mb-6">
+            <label for="message" class="block text-xs font-semibold text-warm-700 mb-1.5">
+              Your Message <span class="text-grove-600" aria-hidden="true">*</span>
+            </label>
+            <textarea
+              id="message" name="message" required rows={4}
+              placeholder="Share your goals, challenges, or questions—the more context you provide, the better we can prepare for our first conversation."
+              class="w-full px-4 py-3.5 rounded-xl border border-warm-200 bg-warm-50 text-warm-900 text-sm font-medium placeholder:text-warm-300 focus:outline-none focus:ring-2 focus:ring-navy-300 focus:border-navy-400 transition-all duration-200 resize-none"
+            ></textarea>
+          </div>
+
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <p class="text-xs text-warm-400 leading-relaxed max-w-xs">
+              By submitting, you agree to our <a href="#" class="underline hover:text-navy-700 transition-colors">Privacy Policy</a>. We never share your information.
+            </p>
+            <button
+              type="submit"
+              id="submit-btn"
+              class="btn-primary px-7 py-3.5 flex-shrink-0"
+            >
+              Send Message
+              <svg class="size-4" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById("contact-form") as HTMLFormElement | null;
+  const btn  = document.getElementById("submit-btn")  as HTMLButtonElement | null;
+  if (form && btn) {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      btn.textContent = "Sending…";
+      btn.disabled = true;
+      // Replace with your endpoint (Netlify Forms, Formspree, or custom API)
+      setTimeout(() => {
+        btn.innerHTML = `<svg class="size-4" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg> Message Sent`;
+        btn.style.backgroundColor = "var(--color-grove-700)";
+        form.reset();
+      }, 1400);
+    });
+  }
+</script>

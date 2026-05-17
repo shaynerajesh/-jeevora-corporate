@@ -1,0 +1,166 @@
+---
+const STEPS = [
+  {
+    num:         "01",
+    title:       "Discover",
+    label:       "Surgical Analysis",
+    description: "We conduct a precise analysis of your market, audience segments, and growth potential—identifying the highest-leverage opportunities before a single conversation is initiated.",
+    deliverables: ["Market & Audience Audit", "Growth Opportunity Map", "Competitive Positioning"],
+    duration:    "Week 1–2",
+    color:       "navy",
+  },
+  {
+    num:         "02",
+    title:       "Architect",
+    label:       "Strategy Design",
+    description: "We develop a customised acquisition strategy meticulously aligned with your brand identity, commercial objectives, and target customer profile—no generic playbooks.",
+    deliverables: ["Acquisition Blueprint", "Channel Strategy", "KPI Framework"],
+    duration:    "Week 2–3",
+    color:       "grove",
+  },
+  {
+    num:         "03",
+    title:       "Deploy",
+    label:       "Elite Execution",
+    description: "Our elite-trained representatives execute campaigns with consistency, brand discipline, and commercial excellence—ensuring every customer interaction reflects your standards.",
+    deliverables: ["Campaign Activation", "Team Deployment", "Live Performance Tracking"],
+    duration:    "Ongoing",
+    color:       "teal",
+  },
+  {
+    num:         "04",
+    title:       "Optimize",
+    label:       "Continuous Refinement",
+    description: "Every interaction generates data. We measure, refine, and scale each element of the campaign to continuously improve conversion rates and maximize return on investment.",
+    deliverables: ["Weekly Performance Reports", "Optimization Sprints", "Quarterly Business Reviews"],
+    duration:    "Ongoing",
+    color:       "navy",
+  },
+] as const;
+
+type C = "navy" | "grove" | "teal";
+const col: Record<C, { num: string; bar: string; dot: string; tag: string; check: string }> = {
+  navy:  { num: "text-navy-700",  bar: "bg-navy-700",  dot: "bg-navy-700 ring-navy-200",    tag: "bg-navy-50 text-navy-600 border-navy-100",    check: "text-navy-700"  },
+  grove: { num: "text-grove-700", bar: "bg-grove-700", dot: "bg-grove-700 ring-grove-200",   tag: "bg-grove-50 text-grove-600 border-grove-100",  check: "text-grove-700" },
+  teal:  { num: "text-teal-500",  bar: "bg-teal-500",  dot: "bg-teal-500 ring-teal-500/30",  tag: "bg-teal-50/40 text-teal-500 border-teal-500/20", check: "text-teal-500" },
+};
+---
+
+<section id="process" aria-labelledby="process-heading" class="section-pad bg-warm-50 relative overflow-hidden">
+
+  <div class="wrap">
+
+    <!-- Header -->
+    <div class="text-center max-w-3xl mx-auto mb-14 lg:mb-18">
+      <p class="label-eyebrow reveal mb-4">How We Work</p>
+      <div class="section-divider reveal delay-100 mx-auto mb-6"></div>
+      <h2
+        id="process-heading"
+        class="reveal delay-100 font-display font-extrabold text-navy-900 text-4xl lg:text-5xl tracking-tighter leading-[1.06] mb-5"
+      >
+        A Scalable System<br />Tailored for Growth
+      </h2>
+      <p class="reveal delay-200 text-lg text-warm-500 leading-relaxed">
+        Four disciplined stages. One compounding growth engine. Designed to move with speed—without sacrificing quality.
+      </p>
+    </div>
+
+    <!-- Desktop: 4-column step cards -->
+    <div class="hidden lg:block">
+      <!-- Step dots + connector line -->
+      <div class="relative mb-10">
+        <div class="flex items-center justify-between relative">
+          <div class="absolute top-5 left-[12.5%] right-[12.5%] h-px bg-warm-200" aria-hidden="true"></div>
+          {STEPS.map(({ num, color, label }) => {
+            const c = col[color];
+            return (
+              <div class="relative z-10 flex flex-col items-center w-1/4 px-4">
+                <div class={`size-10 rounded-full ring-4 ring-offset-2 ring-white flex items-center justify-center ${c.dot}`}>
+                  <span class="text-white text-xs font-black">{num}</span>
+                </div>
+                <p class={`mt-2.5 text-[0.65rem] font-bold tracking-widest uppercase ${c.num}`}>{label}</p>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      <!-- Cards row -->
+      <div class="grid grid-cols-4 gap-5">
+        {STEPS.map(({ num, title, description, deliverables, duration, color }, i) => {
+          const c = col[color];
+          return (
+            <div class={`reveal delay-${i * 100 + 100} bg-white rounded-2xl border border-warm-200 p-6 flex flex-col hover:shadow-lg hover:-translate-y-1 transition-all duration-300`}>
+              <div class="flex items-start justify-between mb-4">
+                <h3 class={`text-2xl font-black ${c.num}`}>{title}</h3>
+                <span class="text-xs font-semibold text-warm-400 bg-warm-100 px-2 py-1 rounded-full flex-shrink-0">{duration}</span>
+              </div>
+              <p class="text-sm text-warm-500 leading-relaxed mb-5 flex-1">{description}</p>
+              <div class="space-y-2">
+                {deliverables.map((d) => (
+                  <div class="flex items-center gap-2">
+                    <svg class={`size-3.5 flex-shrink-0 ${c.check}`} viewBox="0 0 14 14" fill="currentColor" aria-hidden="true">
+                      <path d="M7 0C3.134 0 0 3.134 0 7s3.134 7 7 7 7-3.134 7-7-3.134-7-7-7zm3.207 5.207L6.5 8.914 3.793 6.207l1.414-1.414L6.5 6.086l3.293-3.293 1.414 1.414z"/>
+                    </svg>
+                    <span class="text-xs font-medium text-warm-600">{d}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+
+    <!-- Mobile: vertical steps -->
+    <div class="lg:hidden space-y-4">
+      {STEPS.map(({ num, title, description, deliverables, duration, color }, i) => {
+        const c = col[color];
+        return (
+          <div class={`reveal delay-${i * 100} relative bg-white rounded-2xl border border-warm-200 p-6 pl-7`}>
+            <div class={`absolute left-0 top-4 bottom-4 w-1 rounded-full ${c.bar}`} aria-hidden="true"></div>
+            <div class="flex items-center justify-between mb-3">
+              <div class="flex items-center gap-3">
+                <span class={`text-2xl font-black ${c.num}`}>{num}</span>
+                <h3 class="text-lg font-bold text-navy-900">{title}</h3>
+              </div>
+              <span class="text-xs font-semibold text-warm-400 bg-warm-100 px-2 py-1 rounded-full">{duration}</span>
+            </div>
+            <p class="text-sm text-warm-500 leading-relaxed mb-4">{description}</p>
+            <div class="flex flex-wrap gap-2">
+              {deliverables.map((d) => (
+                <span class={`text-xs font-semibold px-2.5 py-1 rounded-full border ${c.tag}`}>{d}</span>
+              ))}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+
+    <!-- Commitment strip -->
+    <div class="reveal delay-500 mt-12 lg:mt-16 bg-navy-900 rounded-2xl p-6 lg:p-8">
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-6">
+        <div class="text-center lg:text-left">
+          <h3 class="text-xl font-bold text-white mb-1.5">Our Execution Commitment</h3>
+          <p class="text-navy-300 text-sm leading-relaxed max-w-md">
+            Every engagement is governed by defined timelines, transparent KPIs, and structured weekly reviews—so you always know exactly where you stand.
+          </p>
+        </div>
+        <div class="flex flex-wrap justify-center lg:justify-end gap-8">
+          {(
+            [
+              { value: "< 30 Days", label: "Time to First Results" },
+              { value: "Weekly",    label: "Reporting Cadence"     },
+              { value: "3.2×",      label: "Avg. ROI Multiple"     },
+            ] as const
+          ).map(({ value, label }) => (
+            <div class="text-center">
+              <p class="text-2xl font-extrabold text-white tracking-tight">{value}</p>
+              <p class="text-xs text-navy-300 font-medium mt-0.5">{label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

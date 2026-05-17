@@ -1,0 +1,102 @@
+---
+const PILLARS = [
+  {
+    num:    "01",
+    icon:   `<path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/>`,
+    title:       "Engage with Purpose",
+    description: "Every touchpoint is intentional. We identify your highest-value customer segments and deploy targeted engagement strategies that create genuine interest—not noise.",
+    badge:       "Intent-Driven",
+    color:       "navy",
+  },
+  {
+    num:    "02",
+    icon:   `<path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"/>`,
+    title:       "Educate with Clarity",
+    description: "We translate complex value propositions into conversations customers can act on. Our trained representatives communicate benefit—not feature—ensuring every interaction builds informed confidence.",
+    badge:       "Value-Led",
+    color:       "grove",
+  },
+  {
+    num:    "03",
+    icon:   `<path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"/>`,
+    title:       "Convert with Conviction",
+    description: "We close with integrity. By combining data intelligence with genuine human connection, we guide customers from initial curiosity to committed partnership—consistently, at scale.",
+    badge:       "Outcome-Focused",
+    color:       "teal",
+  },
+] as const;
+
+type C = "navy" | "grove" | "teal";
+const colors: Record<C, { icon: string; badge: string; num: string; ring: string }> = {
+  navy:  { icon: "bg-navy-50 text-navy-700",   badge: "bg-navy-700 text-white",  num: "text-navy-700",  ring: "hover:ring-navy-200"  },
+  grove: { icon: "bg-grove-50 text-grove-700", badge: "bg-grove-700 text-white", num: "text-grove-700", ring: "hover:ring-grove-200" },
+  teal:  { icon: "bg-teal-400/10 text-teal-500", badge: "bg-teal-500 text-white", num: "text-teal-500",  ring: "hover:ring-teal-500/30" },
+};
+---
+
+<section id="approach" aria-labelledby="approach-heading" class="section-pad bg-white relative overflow-hidden">
+
+  <div class="wrap">
+    <!-- Header -->
+    <div class="text-center max-w-3xl mx-auto mb-14 lg:mb-18">
+      <p class="label-eyebrow reveal mb-4">Our Philosophy</p>
+      <div class="section-divider reveal delay-100 mx-auto mb-6"></div>
+      <h2
+        id="approach-heading"
+        class="reveal delay-100 font-display font-extrabold text-navy-900 text-4xl lg:text-5xl tracking-tighter leading-[1.06] mb-5"
+      >
+        Designed to Maximize Conversion
+      </h2>
+      <p class="reveal delay-200 text-lg text-warm-500 leading-relaxed">
+        We don't pursue superficial impressions. We integrate data-driven insight with personalized human interaction to guide customers from initial interest to committed partnership.
+      </p>
+    </div>
+
+    <!-- Pillars -->
+    <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+      {PILLARS.map(({ num, icon, title, description, badge, color }, i) => {
+        const c = colors[color];
+        return (
+          <div class={`reveal delay-${i * 150 + 100} group relative bg-white rounded-3xl border border-warm-200 p-8 lg:p-9 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:ring-2 ring-offset-0 ${c.ring}`}>
+            <!-- Large background number -->
+            <span class="absolute top-6 right-6 text-7xl font-black text-warm-100 select-none leading-none group-hover:text-warm-200 transition-colors duration-300">
+              {num}
+            </span>
+
+            <!-- Icon -->
+            <div class={`w-12 h-12 rounded-2xl flex items-center justify-center mb-6 ${c.icon}`}>
+              <svg class="size-6" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24" aria-hidden="true">
+                <Fragment set:html={icon} />
+              </svg>
+            </div>
+
+            <h3 class="text-xl font-bold text-navy-900 mb-3">{title}</h3>
+            <p class="text-sm text-warm-500 leading-relaxed mb-6">{description}</p>
+
+            <span class={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold ${c.badge}`}>
+              <svg class="size-2.5" viewBox="0 0 10 10" fill="currentColor" aria-hidden="true">
+                <circle cx="5" cy="5" r="3"/>
+              </svg>
+              {badge}
+            </span>
+          </div>
+        );
+      })}
+    </div>
+
+    <!-- Connector quote -->
+    <div class="reveal delay-500 mt-14 lg:mt-18 max-w-2xl mx-auto text-center">
+      <blockquote class="text-base lg:text-lg text-warm-600 italic leading-relaxed border-l-2 border-grove-600 pl-5 text-left">
+        "We don't chase impressions. We build outcomes—because in the end, every metric that matters is downstream of trust."
+      </blockquote>
+      <div class="mt-8 flex justify-center">
+        <a href="#services" class="inline-flex items-center gap-2 text-sm font-bold text-navy-700 hover:text-grove-700 transition-colors group/link">
+          Explore Our Solutions
+          <svg class="size-4 group-hover/link:translate-x-1 transition-transform" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

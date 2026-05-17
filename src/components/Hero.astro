@@ -1,0 +1,268 @@
+---
+---
+
+<section
+  id="home"
+  aria-label="Hero"
+  class="relative min-h-[calc(100svh-5rem)] flex flex-col justify-center overflow-hidden bg-white"
+>
+
+  <!-- Background grid -->
+  <div class="absolute inset-0 bg-grid pointer-events-none" aria-hidden="true"></div>
+
+  <!-- Gradient blobs -->
+  <div
+    class="absolute -top-40 -right-40 size-[680px] rounded-full pointer-events-none"
+    style="background:radial-gradient(circle,rgba(27,53,117,0.07) 0%,transparent 70%);"
+    aria-hidden="true"
+  ></div>
+  <div
+    class="absolute -bottom-40 -left-20 size-[540px] rounded-full pointer-events-none"
+    style="background:radial-gradient(circle,rgba(13,108,74,0.06) 0%,transparent 70%);"
+    aria-hidden="true"
+  ></div>
+
+  <div class="wrap relative z-10 py-16 lg:py-0">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-24 items-center min-h-[calc(100svh-5rem)]">
+
+      <!-- ── Left: Copy ── -->
+      <div class="flex flex-col justify-center">
+
+        <!-- Tagline pill -->
+        <div class="reveal mb-7">
+          <span class="
+            inline-flex items-center gap-2 px-4 py-2 rounded-full
+            bg-grove-50 text-grove-700 border border-grove-200
+            text-[0.7rem] font-bold tracking-[0.12em] uppercase
+          ">
+            <span
+              class="size-1.5 rounded-full bg-grove-500 flex-shrink-0"
+              style="animation:var(--animate-pulse-soft);"
+              aria-hidden="true"
+            ></span>
+            Precision Marketing · Authentic Engagement · Scalable Growth
+          </span>
+        </div>
+
+        <!-- Headline -->
+        <h1 class="
+          reveal delay-100
+          font-display font-extrabold text-navy-900
+          text-[2.75rem] sm:text-5xl lg:text-[3.5rem] xl:text-[4rem]
+          leading-[1.04] tracking-tighter mb-5
+        ">
+          Where Conversations<br />
+          <span style="
+            background:linear-gradient(135deg,#0d6c4a 0%,#1a8ca0 100%);
+            -webkit-background-clip:text;
+            -webkit-text-fill-color:transparent;
+            background-clip:text;
+          ">Drive Revenue Growth.</span>
+        </h1>
+
+        <!-- Subheadline -->
+        <p class="
+          reveal delay-200
+          text-lg lg:text-xl text-warm-500 leading-relaxed max-w-[32rem] mb-10
+        ">
+          We deliver human-centered growth solutions for ambitious brands—transforming attention into trust, and trust into measurable revenue outcomes.
+        </p>
+
+        <!-- CTAs -->
+        <div class="reveal delay-300 flex flex-wrap items-center gap-4 mb-12">
+          <a href="#contact" class="btn-primary px-7 py-4 text-base">
+            Start a Partnership
+            <svg class="size-4 flex-shrink-0" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="#approach" class="btn-ghost px-7 py-4 text-base">
+            Discover Our Approach
+          </a>
+        </div>
+
+        <!-- Trust signals -->
+        <div class="reveal delay-400">
+          <div class="flex flex-wrap items-center gap-x-8 gap-y-4">
+            {(
+              [
+                { value: "500+",  label: "Brands Activated"    },
+                { value: "15+",   label: "Markets Served"      },
+                { value: "98%",   label: "Client Retention"    },
+              ] as const
+            ).map(({ value, label }) => (
+              <div class="flex flex-col">
+                <span class="text-2xl font-extrabold text-navy-800 tracking-tight">{value}</span>
+                <span class="text-xs font-medium text-warm-400 mt-0.5">{label}</span>
+              </div>
+            ))}
+
+            <span class="hidden sm:block w-px h-8 bg-warm-200" aria-hidden="true"></span>
+
+            <div class="flex items-center gap-2.5">
+              <div class="flex -space-x-2" aria-hidden="true">
+                {(
+                  [
+                    { bg: "bg-navy-700",  char: "A" },
+                    { bg: "bg-grove-700", char: "B" },
+                    { bg: "bg-teal-500",  char: "C" },
+                    { bg: "bg-navy-400",  char: "D" },
+                  ] as const
+                ).map(({ bg, char }) => (
+                  <div class={`size-7 ${bg} rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-bold`}>
+                    {char}
+                  </div>
+                ))}
+              </div>
+              <span class="text-xs font-medium text-warm-400">Trusted by ambitious brands across India</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Right: Dashboard visual ── -->
+      <div class="hidden lg:flex items-center justify-end reveal-right delay-200">
+        <div class="relative w-full max-w-[460px] xl:max-w-[500px]">
+
+          <!-- Main card -->
+          <div class="
+            relative bg-white rounded-3xl overflow-hidden
+            border border-warm-200
+            shadow-[0_24px_64px_-12px_rgba(27,53,117,0.14),0_4px_16px_-4px_rgba(27,53,117,0.08)]
+            p-7 lg:p-8
+          ">
+            <!-- Card header with logo -->
+            <div class="flex items-center justify-between mb-7">
+              <div class="flex items-center gap-2.5">
+                <div
+                  class="relative overflow-hidden rounded-lg flex-shrink-0"
+                  style="width:2.25rem;height:2.25rem;"
+                >
+                  <img
+                    src="/logo.jpg"
+                    alt="Jeevora"
+                    width="1254" height="1254"
+                    class="absolute inset-0 w-full"
+                    style="height:140%;object-fit:cover;object-position:top center;"
+                    decoding="async"
+                  />
+                </div>
+                <div>
+                  <p class="text-sm font-extrabold text-navy-900 leading-tight">Jeevora</p>
+                  <p class="text-[0.6rem] font-semibold text-warm-400 leading-tight tracking-wide uppercase">
+                    Performance Dashboard
+                  </p>
+                </div>
+              </div>
+              <span class="
+                flex items-center gap-1.5 px-2.5 py-1.5 rounded-full
+                bg-grove-50 text-grove-700 border border-grove-200 text-xs font-bold
+              ">
+                <span class="size-1.5 rounded-full bg-grove-500" style="animation:var(--animate-pulse-soft);" aria-hidden="true"></span>
+                Live
+              </span>
+            </div>
+
+            <!-- Metrics -->
+            <div class="grid grid-cols-2 gap-3 mb-7">
+              {(
+                [
+                  { label: "Revenue Growth",     value: "+47%",    bg: "bg-grove-50",    text: "text-grove-700" },
+                  { label: "New Customers",       value: "2,840",   bg: "bg-navy-50",     text: "text-navy-700"  },
+                  { label: "Campaigns Deployed",  value: "120+",    bg: "bg-teal-400/10", text: "text-teal-500"  },
+                  { label: "Acquisition ROI",     value: "3.2×",    bg: "bg-grove-50",    text: "text-grove-700" },
+                ] as const
+              ).map(({ label, value, bg, text }) => (
+                <div class={`${bg} rounded-2xl p-4`}>
+                  <p class="text-xs font-medium text-warm-400 mb-2">{label}</p>
+                  <p class={`text-xl font-extrabold ${text} tracking-tight`}>{value}</p>
+                </div>
+              ))}
+            </div>
+
+            <!-- Progress bars -->
+            <div>
+              <p class="text-[0.65rem] font-bold tracking-widest uppercase text-warm-400 mb-4">
+                Revenue Channels
+              </p>
+              <div class="space-y-3.5">
+                {(
+                  [
+                    { label: "Field Marketing",       pct: 84, color: "bg-navy-700"  },
+                    { label: "Retail Activation",      pct: 71, color: "bg-grove-700" },
+                    { label: "Contact Centre",         pct: 58, color: "bg-teal-500"  },
+                  ] as const
+                ).map(({ label, pct, color }) => (
+                  <div>
+                    <div class="flex justify-between mb-1.5">
+                      <span class="text-xs font-medium text-warm-600">{label}</span>
+                      <span class="text-xs font-bold text-warm-700">{pct}%</span>
+                    </div>
+                    <div class="h-1.5 bg-warm-100 rounded-full overflow-hidden">
+                      <div
+                        class={`h-full ${color} rounded-full`}
+                        style={`width:${pct}%`}
+                        role="progressbar" aria-valuenow={pct} aria-valuemin={0} aria-valuemax={100}
+                      ></div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <!-- Floating badge — top right -->
+          <div class="
+            absolute -top-4 -right-4
+            bg-grove-700 text-white rounded-2xl px-4 py-3
+            shadow-[0_12px_32px_rgba(13,108,74,0.35)]
+          ">
+            <p class="text-[0.65rem] font-semibold text-grove-200">Avg. Acquisition ROI</p>
+            <p class="text-xl font-extrabold leading-tight">+3.2×</p>
+          </div>
+
+          <!-- Floating card — bottom left with logo -->
+          <div class="
+            absolute -bottom-4 -left-4 bg-white rounded-2xl border border-warm-200
+            shadow-[0_8px_24px_rgba(27,53,117,0.12)] px-4 py-3 flex items-center gap-3
+          ">
+            <div
+              class="relative overflow-hidden rounded-xl flex-shrink-0 border border-warm-100"
+              style="width:2.5rem;height:2.5rem;"
+            >
+              <img
+                src="/logo.jpg"
+                alt="Jeevora"
+                width="1254" height="1254"
+                class="absolute inset-0 w-full"
+                style="height:140%;object-fit:cover;object-position:top center;"
+                decoding="async"
+              />
+            </div>
+            <div>
+              <p class="text-[0.65rem] text-warm-400 font-semibold leading-tight uppercase tracking-wider">
+                Client Satisfaction
+              </p>
+              <p class="text-sm font-extrabold text-navy-900 leading-tight mt-0.5">
+                4.9&thinsp;/&thinsp;5.0 <span class="text-grove-600 text-xs">★★★★★</span>
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Scroll cue -->
+  <div
+    class="absolute bottom-6 inset-x-0 flex flex-col items-center gap-2 reveal-fade delay-600 pointer-events-none"
+    aria-hidden="true"
+  >
+    <span class="text-[0.6rem] font-semibold tracking-widest uppercase text-warm-300">Scroll</span>
+    <div class="w-px h-8 bg-gradient-to-b from-warm-300 to-transparent"></div>
+  </div>
+
+</section>

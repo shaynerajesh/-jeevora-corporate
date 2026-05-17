@@ -1,0 +1,106 @@
+---
+const ADVANTAGES = [
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/>`,
+    title:       "Complex Product Explanations",
+    description: "When your product requires understanding before purchase, our representatives provide clarity—building the confidence that converts.",
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>`,
+    title:       "High-Value Customer Acquisition",
+    description: "We target, engage, and acquire high-lifetime-value customers—ensuring your acquisition spend generates compounding returns.",
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/>`,
+    title:       "Trust-Driven Decision Making",
+    description: "In categories where trust precedes purchase, we are the mechanism that builds it—in real time, through real conversations.",
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/>`,
+    title:       "Speed to Market",
+    description: "We activate campaigns in days—not months. Our deployment infrastructure means your market opportunity is never delayed by execution.",
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>`,
+    title:       "Full Transparency",
+    description: "Real-time performance dashboards and structured reporting ensure you always have complete visibility into what's working and where we're going.",
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/>`,
+    title:       "Elite-Trained Teams",
+    description: "Our people are our product. Every representative undergoes rigorous training in product knowledge, communication, and ethical sales practice.",
+  },
+] as const;
+---
+
+<section id="why-us" aria-labelledby="why-heading" class="section-pad bg-white relative overflow-hidden">
+
+  <!-- Decorative blob -->
+  <div
+    class="absolute left-0 bottom-0 w-72 h-72 bg-grove-50 rounded-tr-full opacity-50 pointer-events-none"
+    aria-hidden="true"
+  ></div>
+
+  <div class="wrap relative z-10">
+
+    <!-- Header -->
+    <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-end mb-14 lg:mb-18">
+      <div>
+        <p class="label-eyebrow reveal mb-4">The Jeevora Advantage</p>
+        <div class="section-divider reveal delay-100 mb-6"></div>
+        <h2
+          id="why-heading"
+          class="reveal delay-100 font-display font-extrabold text-navy-900 text-4xl lg:text-5xl tracking-tighter leading-[1.06]"
+        >
+          Harnessing the Power<br />of Human Interaction
+        </h2>
+      </div>
+      <div class="reveal delay-200">
+        <div class="bg-navy-950 rounded-2xl p-6 lg:p-7">
+          <svg class="size-7 text-grove-400 mb-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"/>
+          </svg>
+          <p class="text-base text-white font-semibold leading-relaxed mb-2">
+            "Automation can inform.<br />Only human interaction can <em class="text-grove-400 not-italic">influence</em>."
+          </p>
+          <p class="text-sm text-navy-300 leading-relaxed">
+            The highest conversion rates occur when trust is established in real time—by a real person who understands the customer's need and speaks to it with clarity and authority.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Advantages grid -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5 mb-14">
+      {ADVANTAGES.map(({ icon, title, description }, i) => (
+        <div class={`reveal delay-${(i % 3) * 100 + 100} group flex gap-4 p-5 lg:p-6 rounded-2xl hover:bg-warm-50 transition-all duration-300 border border-transparent hover:border-warm-200`}>
+          <div class="flex-shrink-0 size-10 bg-navy-50 rounded-xl flex items-center justify-center group-hover:bg-navy-700 transition-colors duration-300">
+            <svg class="size-5 text-navy-700 group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24" aria-hidden="true">
+              <Fragment set:html={icon} />
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-bold text-navy-900 mb-1.5 text-sm">{title}</h3>
+            <p class="text-xs text-warm-500 leading-relaxed">{description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Philosophy teaser strip -->
+    <div class="reveal delay-400 bg-grove-700 rounded-2xl p-6 lg:p-8 flex flex-col lg:flex-row items-center justify-between gap-6">
+      <div class="text-center lg:text-left">
+        <p class="text-xs font-bold text-grove-200 uppercase tracking-widest mb-1">Our Conviction</p>
+        <p class="text-lg font-bold text-white leading-snug">
+          This is the arena where brands win—and where we specialize.
+        </p>
+      </div>
+      <a href="#contact" class="flex-shrink-0 inline-flex items-center gap-2 px-6 py-3.5 bg-white text-grove-700 text-sm font-bold rounded-full hover:bg-grove-50 transition-colors">
+        Work With Us
+        <svg class="size-4" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
