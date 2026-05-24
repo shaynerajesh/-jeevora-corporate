@@ -5,26 +5,22 @@ const NAV_COLS = [
     links: [
       { label: "About Us",      href: "#about"      },
       { label: "Our Approach",  href: "#approach"   },
-      { label: "Philosophy",    href: "#philosophy" },
       { label: "Careers",       href: "#careers"    },
+      { label: "Get in Touch",  href: "#contact"    },
     ],
   },
   {
     heading: "Solutions",
     links: [
-      { label: "Field Marketing & Direct Sales", href: "#services" },
-      { label: "Retail Activation",              href: "#services" },
-      { label: "Experiential Campaigns",         href: "#services" },
-      { label: "Contact Centre Solutions",       href: "#services" },
+      { label: "Field Marketing Direct", href: "#services" },
     ],
   },
   {
     heading: "Resources",
     links: [
-      { label: "Performance Insights",  href: "#insights" },
-      { label: "Partner Programme",     href: "#partner"  },
-      { label: "Process Overview",      href: "#process"  },
-      { label: "Get in Touch",          href: "#contact"  },
+      { label: "How We Work",     href: "#process"  },
+      { label: "Why Jeevora",     href: "#why-us"   },
+      { label: "Contact",         href: "#contact"  },
     ],
   },
   {
@@ -59,9 +55,7 @@ const SOCIALS = [
 
 <footer aria-label="Site footer" class="bg-navy-950 relative overflow-hidden">
 
-  <!-- Subtle grid overlay -->
   <div class="absolute inset-0 bg-grid opacity-10 pointer-events-none" aria-hidden="true"></div>
-  <!-- Glow blob -->
   <div
     class="absolute bottom-0 left-1/3 size-[500px] bg-grove-900/15 rounded-full blur-3xl pointer-events-none"
     aria-hidden="true"
@@ -69,27 +63,19 @@ const SOCIALS = [
 
   <div class="wrap relative z-10">
 
-    <!-- Top bar -->
     <div class="border-b border-white/8 py-12 lg:py-14 grid lg:grid-cols-4 gap-10 lg:gap-8">
 
-      <!-- Brand column -->
       <div class="lg:col-span-1">
 
-        <!-- Logo lockup -->
-        <a href="#" class="inline-flex items-center gap-3 mb-5 group" aria-label="Jeevora Private Limited — home">
-          <div
-            class="relative overflow-hidden rounded-xl flex-shrink-0 border border-white/10"
-            style="width:3rem;height:3rem;"
-          >
-            <img
-              src="/logo.jpg"
-              alt="Jeevora Private Limited"
-              width="1254" height="1254"
-              class="absolute inset-0 w-full"
-              style="height:140%;object-fit:cover;object-position:top center;"
-              decoding="async"
-            />
-          </div>
+        <a href="#home" class="inline-flex items-center gap-3 mb-5 group" aria-label="Jeevora Private Limited — home">
+          <img
+            src="/logo-mark.svg"
+            alt=""
+            class="h-10 w-auto flex-shrink-0"
+            width="44"
+            height="27"
+            decoding="async"
+          />
           <span class="flex flex-col leading-none">
             <span class="font-display font-extrabold text-lg tracking-tight text-white group-hover:text-grove-300 transition-colors duration-200">Jeevora</span>
             <span class="text-[0.52rem] font-semibold tracking-[0.14em] uppercase text-navy-400 mt-0.5">Private Limited</span>
@@ -97,10 +83,9 @@ const SOCIALS = [
         </a>
 
         <p class="text-sm text-navy-300 leading-relaxed mb-6 max-w-xs">
-          Growing people, creating impact. India's premier human-led growth company — driving measurable revenue through authentic engagement.
+          Growing people, creating impact. India's premier human-led growth company — building trust through authentic engagement, field presence, and lasting brand relationships.
         </p>
 
-        <!-- Contact quick-links -->
         <div class="space-y-2.5">
           <a href="mailto:hello@jeevora.com" class="flex items-center gap-2.5 text-xs text-navy-300 hover:text-grove-300 transition-colors duration-200 font-medium">
             <svg class="size-3.5 text-navy-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
@@ -123,7 +108,6 @@ const SOCIALS = [
         </div>
       </div>
 
-      <!-- Nav columns -->
       <nav aria-label="Footer navigation" class="lg:col-span-3 grid grid-cols-2 md:grid-cols-4 gap-8">
         {NAV_COLS.map(({ heading, links }) => (
           <div>
@@ -145,7 +129,6 @@ const SOCIALS = [
       </nav>
     </div>
 
-    <!-- Bottom bar -->
     <div class="py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
 
       <div class="text-center sm:text-left">
@@ -157,7 +140,6 @@ const SOCIALS = [
         </p>
       </div>
 
-      <!-- Socials -->
       <div class="flex items-center gap-3">
         {SOCIALS.map(({ label, href, icon }) => (
           <a
@@ -173,9 +155,8 @@ const SOCIALS = [
           </a>
         ))}
 
-        <!-- Back to top -->
         <a
-          href="#"
+          href="#home"
           aria-label="Back to top"
           class="size-8 bg-navy-800 hover:bg-navy-700 rounded-lg flex items-center justify-center transition-colors duration-200 ml-1"
         >

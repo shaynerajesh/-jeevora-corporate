@@ -223,6 +223,31 @@
     border-radius: 9999px;
   }
 
+  /* ── Navbar brand ── */
+  .nav-brand {
+    display:           flex;
+    align-items:       center;
+    flex-shrink:       0;
+    margin-inline-end: 0.5rem;
+  }
+
+  .nav-logo {
+    display:         block;
+    height:          2.5rem;
+    width:           auto;
+    max-width:       min(10rem, 38vw);
+    object-fit:      contain;
+    object-position: center;
+    flex-shrink:     0;
+  }
+
+  @media (min-width: 1024px) {
+    .nav-logo {
+      height:    2.625rem;
+      max-width: 10.5rem;
+    }
+  }
+
   /* ── Navbar State ── */
   .nav-scrolled {
     background-color: rgba(255, 255, 255, 0.92) !important;

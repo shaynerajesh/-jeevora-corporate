@@ -14,7 +14,7 @@ const STEPS = [
     title:       "Architect",
     label:       "Strategy Design",
     description: "We develop a customised acquisition strategy meticulously aligned with your brand identity, commercial objectives, and target customer profile—no generic playbooks.",
-    deliverables: ["Acquisition Blueprint", "Channel Strategy", "KPI Framework"],
+    deliverables: ["Engagement Blueprint", "Channel Strategy", "Activation Plan"],
     duration:    "Week 2–3",
     color:       "grove",
   },
@@ -23,7 +23,7 @@ const STEPS = [
     title:       "Deploy",
     label:       "Elite Execution",
     description: "Our elite-trained representatives execute campaigns with consistency, brand discipline, and commercial excellence—ensuring every customer interaction reflects your standards.",
-    deliverables: ["Campaign Activation", "Team Deployment", "Live Performance Tracking"],
+    deliverables: ["Campaign Activation", "Team Deployment", "Field Presence Rollout"],
     duration:    "Ongoing",
     color:       "teal",
   },
@@ -31,8 +31,8 @@ const STEPS = [
     num:         "04",
     title:       "Optimize",
     label:       "Continuous Refinement",
-    description: "Every interaction generates data. We measure, refine, and scale each element of the campaign to continuously improve conversion rates and maximize return on investment.",
-    deliverables: ["Weekly Performance Reports", "Optimization Sprints", "Quarterly Business Reviews"],
+    description: "Every interaction teaches us something. We listen, refine, and scale what resonates—strengthening campaigns through feedback, field insight, and continuous partnership.",
+    deliverables: ["Partnership Reviews", "Campaign Refinement", "Relationship Check-ins"],
     duration:    "Ongoing",
     color:       "navy",
   },
@@ -143,15 +143,15 @@ const col: Record<C, { num: string; bar: string; dot: string; tag: string; check
         <div class="text-center lg:text-left">
           <h3 class="text-xl font-bold text-white mb-1.5">Our Execution Commitment</h3>
           <p class="text-navy-300 text-sm leading-relaxed max-w-md">
-            Every engagement is governed by defined timelines, transparent KPIs, and structured weekly reviews—so you always know exactly where you stand.
+            Every engagement is governed by clear timelines, open communication, and structured partnership reviews—so you always know how your brand is showing up in the field.
           </p>
         </div>
         <div class="flex flex-wrap justify-center lg:justify-end gap-8">
           {(
             [
-              { value: "< 30 Days", label: "Time to First Results" },
-              { value: "Weekly",    label: "Reporting Cadence"     },
-              { value: "3.2×",      label: "Avg. ROI Multiple"     },
+              { value: "Rapid",   label: "Campaign Deployment"  },
+              { value: "Weekly",  label: "Partnership Cadence"  },
+              { value: "Trusted", label: "Execution Standard"   },
             ] as const
           ).map(({ value, label }) => (
             <div class="text-center">

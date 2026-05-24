@@ -40,7 +40,7 @@
               style="animation:var(--animate-pulse-soft);"
               aria-hidden="true"
             ></span>
-            Precision Marketing · Authentic Engagement · Scalable Growth
+            Human Connection · Authentic Engagement · Real-World Growth
           </span>
         </div>
 
@@ -51,13 +51,13 @@
           text-[2.75rem] sm:text-5xl lg:text-[3.5rem] xl:text-[4rem]
           leading-[1.04] tracking-tighter mb-5
         ">
-          Where Conversations<br />
+          Growing People,<br />
           <span style="
             background:linear-gradient(135deg,#0d6c4a 0%,#1a8ca0 100%);
             -webkit-background-clip:text;
             -webkit-text-fill-color:transparent;
             background-clip:text;
-          ">Drive Revenue Growth.</span>
+          ">Creating Impact.</span>
         </h1>
 
         <!-- Subheadline -->
@@ -65,7 +65,7 @@
           reveal delay-200
           text-lg lg:text-xl text-warm-500 leading-relaxed max-w-[32rem] mb-10
         ">
-          We deliver human-centered growth solutions for ambitious brands—transforming attention into trust, and trust into measurable revenue outcomes.
+          We help ambitious brands grow through real conversations, field presence, and experiential activation—building trust that lasts long after the campaign ends.
         </p>
 
         <!-- CTAs -->
@@ -87,9 +87,9 @@
           <div class="flex flex-wrap items-center gap-x-8 gap-y-4">
             {(
               [
-                { value: "500+",  label: "Brands Activated"    },
-                { value: "15+",   label: "Markets Served"      },
-                { value: "98%",   label: "Client Retention"    },
+                { value: "Pan-India", label: "Field Presence"   },
+                { value: "Human-Led", label: "Brand Teams"      },
+                { value: "Long-Term", label: "Partnerships"     },
               ] as const
             ).map(({ value, label }) => (
               <div class="flex flex-col">
@@ -121,37 +121,30 @@
         </div>
       </div>
 
-      <!-- ── Right: Dashboard visual ── -->
+      <!-- ── Right: Human-centered presence visual ── -->
       <div class="hidden lg:flex items-center justify-end reveal-right delay-200">
         <div class="relative w-full max-w-[460px] xl:max-w-[500px]">
 
-          <!-- Main card -->
           <div class="
             relative bg-white rounded-3xl overflow-hidden
             border border-warm-200
             shadow-[0_24px_64px_-12px_rgba(27,53,117,0.14),0_4px_16px_-4px_rgba(27,53,117,0.08)]
             p-7 lg:p-8
           ">
-            <!-- Card header with logo -->
             <div class="flex items-center justify-between mb-7">
               <div class="flex items-center gap-2.5">
-                <div
-                  class="relative overflow-hidden rounded-lg flex-shrink-0"
-                  style="width:2.25rem;height:2.25rem;"
-                >
-                  <img
-                    src="/logo.jpg"
-                    alt="Jeevora"
-                    width="1254" height="1254"
-                    class="absolute inset-0 w-full"
-                    style="height:140%;object-fit:cover;object-position:top center;"
-                    decoding="async"
-                  />
-                </div>
+                <img
+                  src="/logo-mark.svg"
+                  alt=""
+                  class="size-9 flex-shrink-0"
+                  width="44"
+                  height="27"
+                  decoding="async"
+                />
                 <div>
                   <p class="text-sm font-extrabold text-navy-900 leading-tight">Jeevora</p>
                   <p class="text-[0.6rem] font-semibold text-warm-400 leading-tight tracking-wide uppercase">
-                    Performance Dashboard
+                    How We Show Up
                   </p>
                 </div>
               </div>
@@ -160,92 +153,56 @@
                 bg-grove-50 text-grove-700 border border-grove-200 text-xs font-bold
               ">
                 <span class="size-1.5 rounded-full bg-grove-500" style="animation:var(--animate-pulse-soft);" aria-hidden="true"></span>
-                Live
+                In the field
               </span>
             </div>
 
-            <!-- Metrics -->
-            <div class="grid grid-cols-2 gap-3 mb-7">
-              {(
-                [
-                  { label: "Revenue Growth",     value: "+47%",    bg: "bg-grove-50",    text: "text-grove-700" },
-                  { label: "New Customers",       value: "2,840",   bg: "bg-navy-50",     text: "text-navy-700"  },
-                  { label: "Campaigns Deployed",  value: "120+",    bg: "bg-teal-400/10", text: "text-teal-500"  },
-                  { label: "Acquisition ROI",     value: "3.2×",    bg: "bg-grove-50",    text: "text-grove-700" },
-                ] as const
-              ).map(({ label, value, bg, text }) => (
-                <div class={`${bg} rounded-2xl p-4`}>
-                  <p class="text-xs font-medium text-warm-400 mb-2">{label}</p>
-                  <p class={`text-xl font-extrabold ${text} tracking-tight`}>{value}</p>
+            <div class="mb-7">
+              <div class="bg-navy-50 rounded-2xl p-5 flex gap-3">
+                <span class="size-2 rounded-full bg-navy-700 flex-shrink-0 mt-1.5" aria-hidden="true"></span>
+                <div>
+                  <p class="text-sm font-bold text-navy-900 mb-1">Field Marketing Direct</p>
+                  <p class="text-xs text-warm-500 leading-relaxed">
+                    Face-to-face brand representation where decisions happen—trained ambassadors who represent your brand with clarity, care, and conviction.
+                  </p>
                 </div>
-              ))}
-            </div>
-
-            <!-- Progress bars -->
-            <div>
-              <p class="text-[0.65rem] font-bold tracking-widest uppercase text-warm-400 mb-4">
-                Revenue Channels
-              </p>
-              <div class="space-y-3.5">
-                {(
-                  [
-                    { label: "Field Marketing",       pct: 84, color: "bg-navy-700"  },
-                    { label: "Retail Activation",      pct: 71, color: "bg-grove-700" },
-                    { label: "Contact Centre",         pct: 58, color: "bg-teal-500"  },
-                  ] as const
-                ).map(({ label, pct, color }) => (
-                  <div>
-                    <div class="flex justify-between mb-1.5">
-                      <span class="text-xs font-medium text-warm-600">{label}</span>
-                      <span class="text-xs font-bold text-warm-700">{pct}%</span>
-                    </div>
-                    <div class="h-1.5 bg-warm-100 rounded-full overflow-hidden">
-                      <div
-                        class={`h-full ${color} rounded-full`}
-                        style={`width:${pct}%`}
-                        role="progressbar" aria-valuenow={pct} aria-valuemin={0} aria-valuemax={100}
-                      ></div>
-                    </div>
-                  </div>
-                ))}
               </div>
             </div>
+
+            <blockquote class="border-l-2 border-grove-600 pl-4">
+              <p class="text-sm text-warm-600 italic leading-relaxed">
+                "Every campaign starts with people—trained representatives who represent your brand with clarity, care, and conviction."
+              </p>
+            </blockquote>
           </div>
 
-          <!-- Floating badge — top right -->
           <div class="
             absolute -top-4 -right-4
             bg-grove-700 text-white rounded-2xl px-4 py-3
             shadow-[0_12px_32px_rgba(13,108,74,0.35)]
           ">
-            <p class="text-[0.65rem] font-semibold text-grove-200">Avg. Acquisition ROI</p>
-            <p class="text-xl font-extrabold leading-tight">+3.2×</p>
+            <p class="text-[0.65rem] font-semibold text-grove-200">Our Focus</p>
+            <p class="text-sm font-extrabold leading-tight">Trust &amp; Relationships</p>
           </div>
 
-          <!-- Floating card — bottom left with logo -->
           <div class="
             absolute -bottom-4 -left-4 bg-white rounded-2xl border border-warm-200
-            shadow-[0_8px_24px_rgba(27,53,117,0.12)] px-4 py-3 flex items-center gap-3
+            shadow-[0_8px_24px_rgba(27,53,117,0.12)] px-4 py-3 flex items-center gap-3 max-w-[14rem]
           ">
-            <div
-              class="relative overflow-hidden rounded-xl flex-shrink-0 border border-warm-100"
-              style="width:2.5rem;height:2.5rem;"
-            >
-              <img
-                src="/logo.jpg"
-                alt="Jeevora"
-                width="1254" height="1254"
-                class="absolute inset-0 w-full"
-                style="height:140%;object-fit:cover;object-position:top center;"
-                decoding="async"
-              />
-            </div>
+            <img
+              src="/logo-mark.svg"
+              alt=""
+              class="size-10 flex-shrink-0"
+              width="44"
+              height="27"
+              decoding="async"
+            />
             <div>
               <p class="text-[0.65rem] text-warm-400 font-semibold leading-tight uppercase tracking-wider">
-                Client Satisfaction
+                Built on
               </p>
               <p class="text-sm font-extrabold text-navy-900 leading-tight mt-0.5">
-                4.9&thinsp;/&thinsp;5.0 <span class="text-grove-600 text-xs">★★★★★</span>
+                Meaningful conversations
               </p>
             </div>
           </div>

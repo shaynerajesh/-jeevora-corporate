@@ -3,9 +3,8 @@ const NAV_LINKS = [
   { label: "About",     href: "#about"    },
   { label: "Approach",  href: "#approach" },
   { label: "Solutions", href: "#services" },
-  { label: "Insights",  href: "#insights" },
   { label: "Careers",   href: "#careers"  },
-  { label: "Partner",   href: "#partner"  },
+  { label: "Contact",   href: "#contact"  },
 ] as const;
 ---
 
@@ -22,58 +21,20 @@ const NAV_LINKS = [
     >
 
       <!-- ── Logo ── -->
-      <!--
-        Logo is 1254×1254 (square). We show the full mark cropped from the top
-        at a fixed height — the icon + "Jeevora" wordmark fill ~70% of the image
-        height so they remain crisply visible in the navbar at h-14/h-16.
-      -->
       <a
         href="#home"
-        class="flex-shrink-0 flex items-center group"
+        class="nav-brand"
         aria-label="Jeevora — back to top"
       >
-        <!-- Clipping container: fixed height, width = height (square logo) -->
-        <div
-          class="relative overflow-hidden select-none"
-          style="
-            height: 3.25rem;
-            width:  3.25rem;
-            border-radius: 0.5rem;
-          "
-        >
-          <!--
-            Show only the TOP 70% of the square logo (icon + wordmark).
-            We set the image taller than the container and shift it up with
-            object-position so the icon sits at the top and the small
-            "JEEVORA PRIVATE LIMITED" line is cropped off the bottom.
-          -->
-          <img
-            src="/logo.jpg"
-            alt="Jeevora Private Limited"
-            width="1254"
-            height="1254"
-            class="absolute inset-0 w-full select-none"
-            style="
-              height: 143%;
-              object-fit: cover;
-              object-position: top center;
-            "
-            decoding="async"
-          />
-        </div>
-
-        <!-- Wordmark beside the mark (always visible, hides nothing) -->
-        <span class="ml-2.5 flex flex-col leading-none select-none">
-          <span
-            class="font-display font-extrabold text-lg tracking-tight text-navy-900
-                   group-hover:text-navy-700 transition-colors duration-150"
-          >
-            Jeevora
-          </span>
-          <span class="text-[0.55rem] font-semibold tracking-[0.12em] uppercase text-grove-600 mt-0.5">
-            Private Limited
-          </span>
-        </span>
+        <img
+          src="/logo-mark.svg"
+          alt=""
+          class="nav-logo"
+          width="440"
+          height="270"
+          decoding="async"
+          fetchpriority="high"
+        />
       </a>
 
       <!-- ── Desktop nav links ── -->
